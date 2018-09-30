@@ -1,3 +1,6 @@
+
+
+
 import re
 import sys
 
@@ -228,10 +231,34 @@ def param(): #11
     types()
     w = tokens[x].isalpha()
     if tokens[x] not in keywords and w is True:
+        x += 1 #Accept ID 
+    else: 
+        return
+    if "[" in tokens[x]: 
+        x += 1 # '[' Accepted 
+        if "]" in tokens[x]: 
+            x += 1 # ']' Accepted 
+            return 
+        else: 
+            print("REJECT")
+            sys.exit(0) 
+    else: 
+        return 
+    
+def compoundstmt(): #12 
+    global x 
+    if "{" in tokens[x]: 
+        x += 1 # '{' Accepted 
+    else :
+        return 
 
-
-
-
-
-
+    localdeclarations() 
+    statementlist() 
+    
+    if "}" in tokens[x]: 
+        x += 1 # '}' Accepted 
+    else: 
+        print("REJECT")
+        sys.exit(0) 
+        
 
