@@ -1,0 +1,45 @@
+Program_declaration     -> declaration_list
+declaration_list        -> declaration declaration_list'
+declaration_list'       -> declaration declaration_list' | epsilon
+declaration             -> type_specifier ID declaration'
+declarationPrime        -> var_declaration' | ( params ) compound_statement
+var_declaration         -> type_specifier ID var_declaration'
+var_declaration'        -> ; | [ NUM ] ;
+type_specifier          -> int | float | void
+parameters              -> void params' | int ID param' param_list' | float ID param' param_list'
+params'                 -> ID param' param_list' | epsilon
+parameterList           -> parameter parameterList'
+parameterList'          -> , parameter parameterList' | epsilon
+parameter               -> typeSpecifier ID parameter' (combines parameter and parameterPrime)
+parameterPrime          -> [ ] | epsilon
+compoundStatement       -> { localDeclarations statementList }
+localDeclarations       -> localDeclarationsPrime
+localDeclarationsPrime  -> var_declaration local_declarations' | epsilon (epsilon same as just return *blank*) 
+statementList           -> statementListPrime
+statementListPrime      -> statement statementListPrime | epsilon
+statement               -> expressionStatement | compoundStatement | selectionStatement | iterationStatement | returnStatement
+expressionStatement    -> expression ; | ;
+selectionStatement     -> if ( expression ) statement (not in my grammar atm: selection_statement')
+selection_statement'    -> else statement | epsilon
+iteration_statement     -> while ( expression ) statement
+returnStatement        -> return return_statement'
+return_statement'       -> expression ; | ;
+expression              -> ID expression' | ( expression ) term' additive_expression' simple_expression' | NUM term' additive_expression' simple_expression'
+expression'             -> var' expression'' | ( args ) term' additive_expression' simple_expression' | epsilon
+expression''            -> = expression | term' additive_expression' simple_expression' | epsilon
+var                     -> ID var'
+var'                    -> [ expression ] | epsilon
+simpleExpression       -> additive_expression simple_expression'
+simple_expression'      -> relational_operator additive_expression | epsilon
+relational_operator     -> <= | < | > | >= | == | !=
+additive_expression     -> term additive_expression'
+additive_expression'    -> additive_operator term additive_expression' | epsilon
+additive_operator       -> + | -
+term                    -> factor termPrime
+termPrime               -> multiplicative_operator factor termPrime | epsilon
+multiplicative_operator -> * | /
+factor                  -> ( expression ) | NUM | ID factor'
+factor'                 -> ( args ) | var'
+args                    -> argument_list | epsilon
+argument_list           -> expression argument_list'
+argument_list'          -> , expression argument_list' | epsilon
