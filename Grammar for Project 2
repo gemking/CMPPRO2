@@ -18,20 +18,19 @@ local_declarations'     -> var_declaration local_declarations' | epsilon
 statement_list          -> statement_list'
 statement_list'         -> statement statement_list' | epsilon
 statement               -> expression_statement | compound_statement | selection_statement | iteration_statement | return_statement
-expression_statement    -> expression_statement' ;
-expression_statement'   -> expression | epsilon
+expression_statement    -> expression ; | ;
 selection_statement     -> if ( expression ) statement selection_statement'
 selection_statement'    -> else statement | epsilon
 iteration_statement     -> while ( expression ) statement
 return_statement        -> return return_statement'
-return_statement'       -> return_statement'' ;
-return_statement''      -> expression | epsilon
+return_statement'       -> expression ; | ;
 expression              -> ID expression' | ( expression ) term' additive_expression' simple_expression' | NUM term' additive_expression' simple_expression'
-expression'             -> var' = expression | factor' term' additive_expression' simple_expression'
+expression'             -> var' expression'' | ( args ) term' additive_expression' simple_expression' | epsilon
+expression''            -> = expression | term' additive_expression' simple_expression' | epsilon
 var                     -> ID var'
 var'                    -> [ expression ] | epsilon
 simple_expression       -> additive_expression simple_expression'
-simple_expression'      -> relational_operator | epsilon
+simple_expression'      -> relational_operator additive_expression | epsilon
 relational_operator     -> <= | < | > | >= | == | !=
 additive_expression     -> term additive_expression'
 additive_expression'    -> additive_operator term additive_expression' | epsilon
@@ -41,7 +40,6 @@ term'                   -> multiplicative_operator factor term' | epsilon
 multiplicative_operator -> * | /
 factor                  -> ( expression ) | NUM | ID factor'
 factor'                 -> ( args ) | var'
-call                    -> ID ( args )
 args                    -> argument_list | epsilon
 argument_list           -> expression argument_list'
 argument_list'          -> , expression argument_list' | epsilon
