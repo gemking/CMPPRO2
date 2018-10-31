@@ -1,0 +1,158 @@
+if token[i-1] != "void":(only) 
+
+//test 1 
+['int x global 0', 'int y global 0', 'int x global 0', 'int y global 0', 'int z main 1']                                 
+['void main int x int y']                                                                                                
+ACCEPT   
+
+//test 2 
+['int x global 0', 'int y global 0', 'int x global 0', 'int y global 0', 'int z main 1', 'float b my 1', 'int u my 1', 'i   
+nt z my 1']                                                                                                                 
+['void main int x int y', 'int my float b int u']                                                                           
+REJECT conflict 
+
+//test 3 
+Reject
+
+//test 4
+['int x global 0', 'int y global 0', 'int x global 0', 'int y global 0', 'int z main 1', 'float b my 1', 'int u my 1', 'i
+nt z my 1']                                                                                                              
+['void main int x int y', 'int my float b int u']                                                                        
+REJECT  conflict 
+
+//test 5 
+REJECT
+
+//test 6 
+['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'int   
+ z main 1']                                                                                                                 
+['int my float b int c', 'void main int x int y']                                                                           
+ACCEPT              
+
+
+//test 7 
+REJECT                                                                                 
+           
+
+//test 8 
+['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'int
+ z main 1']                                                                                                              
+['int my float b int c', 'void main int x int y']                                                                        
+ACCEPT  
+
+//test 9 
+REJECT
+
+//test 10 
+['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'int
+ z something 1', 'int z other 1', 'int q other 1', 'int why other 1']                                                    
+['int my float b int c', 'void something int x int y', 'int other int z int q']                                          
+REJECT 
+
+//test 11
+REJECT
+
+//test 12 
+REJECT
+
+//test 13         
+REJECT
+
+//test 14
+REJECT
+
+//test 15 
+REJECT
+
+//test 16 
+REJECT
+
+//test 17 
+REJECT
+
+//test 18 
+REJECT
+
+//test 19 
+['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
+at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why something 1']                           
+['int my float b int c', 'void main int x int y', 'int something int z int q']                                           
+REJECT conflict 
+
+//test 20 
+REJECT
+
+//test 21 
+'int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
+at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why something 1']                           
+['int my float b int c', 'void main int x int y', 'int something int z int q']                                           
+REJECT Conflict 
+
+
+//test 22 
+['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
+at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why something 1']                           
+['int my float b int c', 'void main int x int y', 'int something int z int q']                                           
+REJECT   Conflict 
+
+//test 23 
+['int q main 1', 'int b main 1']                                                                                         
+['void main void']                                                                                                       
+ACCEPT    
+
+//test 24 
+REJECT conflict 
+
+//test 25 
+['int x global 0', 'int y global 0', 'int x main 1', 'int y main 1', 'int x main 2', 'int y main 2', 'int x main 3', 'int   
+ y main 3']                                                                                                                 
+['void main void']                                                                                                          
+ACCEPT(even with token i + 2) 
+
+//test 26 
+[]                                                                                                                       
+['void print void', 'void main void']                                                                                    
+ACCEPT(even with token i + 2) 
+
+//test 27 
+REJECT
+
+//test 28 
+REJECT
+
+//test 29 
+REJECT
+
+//test 30 
+REJECT
+
+//test 31 
+[]                                                                                                                       
+['void main void', 'void foo void']                                                                                      
+REJECT      
+
+//test 32 
+REJECT
+
+//test 33 
+REJECT
+
+//test 34 
+REJECT
+
+//test 35 
+REJECT
+
+//test 36 
+REJECT
+
+//test 37 
+REJECT
+
+//test 38 
+REJECT
+
+//test 39 
+REJECT 
+
+possible token[i+2] == "void"?
