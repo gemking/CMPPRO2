@@ -9,8 +9,8 @@ ACCEPT
 ['int x global 0', 'int y global 0', 'int x global 0', 'int y global 0', 'int z main 1', 'float b my 1', 'int u my 1', 'i   
 nt z my 1']                                                                                                                 
 ['void main int x int y', 'int my float b int u']                                                                           
-REJECT conflict 
-
+(Not Really Reject conflict because main is not the last function; should accept) 
+ACCEPT
 //test 3 
 Reject
 
@@ -18,7 +18,8 @@ Reject
 ['int x global 0', 'int y global 0', 'int x global 0', 'int y global 0', 'int z main 1', 'float b my 1', 'int u my 1', 'i
 nt z my 1']                                                                                                              
 ['void main int x int y', 'int my float b int u']                                                                        
-REJECT  conflict 
+REJECT  conflict(Not really conflict because main has to be the last function to execute).
+ACCEPT 
 
 //test 5 
 REJECT
@@ -77,7 +78,7 @@ REJECT
 ['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
 at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why something 1']                           
 ['int my float b int c', 'void main int x int y', 'int something int z int q']                                           
-REJECT conflict 
+REJECT conflict(Not Really Reject conflict because main is not the last function; should accept) 
 
 //test 20 
 REJECT
@@ -86,7 +87,7 @@ REJECT
 'int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
 at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why something 1']                           
 ['int my float b int c', 'void main int x int y', 'int something int z int q']                                           
-REJECT Conflict 
+REJECT Conflict((Not Really Reject conflict because main is not the last function; should accept) 
 
 
 //test 22 
