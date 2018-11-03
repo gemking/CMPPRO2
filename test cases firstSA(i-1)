@@ -28,7 +28,7 @@ REJECT
 ['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'int   
  z main 1']                                                                                                                 
 ['int my float b int c', 'void main int x int y']                                                                           
-ACCEPT              
+ACCEPT (REJECT Conflict)             
 
 
 //test 7 
@@ -39,7 +39,7 @@ REJECT
 ['int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'int
  z main 1']                                                                                                              
 ['int my float b int c', 'void main int x int y']                                                                        
-ACCEPT  
+ACCEPT(REJECT Conflict)  
 
 //test 9 
 REJECT
@@ -81,7 +81,7 @@ at q main 1', 'int z main 1', 'int z something 1', 'int q something 1', 'int why
 REJECT conflict(Not Really Reject conflict because main is not the last function; should accept) 
 
 //test 20 
-REJECT
+REJECT(Accept conflict) 
 
 //test 21 
 'int x global 0', 'int y global 0', 'float b my 1', 'int c my 1', 'int z my 1', 'int x global 0', 'int y global 0', 'flo
