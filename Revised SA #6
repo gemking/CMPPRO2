@@ -101,8 +101,8 @@ functionReturn = 0  # checks if the function is an int/float and if it has a ret
 
              # ----- beginning of semantic analyzing parser ----- #
 
-def containsNumber(inputstring):
-    return any(char.isdigit() for char in inputstring)
+def hasNum(inputString):
+    return any(char.isdigit() for char in inputString)
 
 
 def programDeclaration():  # runs program(Rule 1)
