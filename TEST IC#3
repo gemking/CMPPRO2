@@ -1173,8 +1173,6 @@ def exp():  # 22
                 simpleExpressionPrime() 
         elif token[i] in comparisionSymbols:
             simpleExpressionPrime() 
-        else:
-            return
     else:
         print("REJECT")
         sys.exit(0)
