@@ -20,3 +20,25 @@
 20  	end  		block		
 21  	BR  								6
 22  	end  		func		main
+
+
+
+
+test2: 
+1   	func 		sub 		int 		1
+2   	param		4   					z
+3   	comp 		x   		y   		t0
+4   	BGT  		t0  					6
+7   	return		    		    		t1
+5   	BR   								9
+6   	add  		z   		z   		t1
+8   	BR   								10
+9   	assgn		5   					x
+10  	end  		func		sub
+11  	func 		main		void		0
+12  	alloc		4   		    		x
+13  	alloc		4   		    		y
+14  	arg  								x
+15  	call 		sub 		1   		t2
+16  	assgn		t2  					y
+17  	end  		func		main
