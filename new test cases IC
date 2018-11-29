@@ -20,3 +20,20 @@
 9   	assgn		t1  					x
 10  	end  		block		
 11  	end  		func		main
+
+ int  main(void)
+ {
+    int x;
+    {
+       int x;
+    }
+    return x;
+ }
+ 
+ 1   	func 		main		int 		0
+2   	alloc		4   		    		x
+3   	block		    		    
+4   	alloc		4   		    		x
+5   	end  		block		
+6   	return		    		    		x
+7   	end  		func		main
