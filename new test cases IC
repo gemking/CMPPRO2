@@ -1,0 +1,22 @@
+  int main(int x)
+  {
+     int a;
+     if(x > 2)
+     {
+        x = a + 1;
+     }
+  }
+
+
+
+1   	func 		main		int 		1
+2   	param		4   					x
+3   	alloc		4   		    		a
+4   	comp 		x   		2   		t0
+5   	BGT  		t0  					7
+6   	BR   								11
+7   	block		    		    
+8   	add  		a   		1   		t1
+9   	assgn		t1  					x
+10  	end  		block		
+11  	end  		func		main
